@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gamze ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ffd6e7,#fff0f5);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+padding:20px;
+}
+
+.container{
+background:white;
+max-width:400px;
+width:100%;
+padding:25px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+img{
+width:220px;
+height:220px;
+object-fit:cover;
+border-radius:20px;
+margin-bottom:20px;
+}
+
+h1{
+font-size:25px;
+color:#ff4d88;
+margin-bottom:20px;
+}
+
+p{
+font-size:18px;
+margin-bottom:20px;
+}
+
+.btn{
+border:none;
+padding:15px 25px;
+border-radius:30px;
+font-size:18px;
+cursor:pointer;
+margin:8px;
+}
+
+.yes{
+background:#ff4d88;
+color:white;
+}
+
+.no{
+background:#eaeaea;
+color:#444;
+position:relative;
+}
+
+input[type="date"]{
+padding:12px;
+font-size:18px;
+border-radius:10px;
+border:1px solid #ccc;
+width:100%;
+margin:20px 0;
+}
+
+.hidden{
+display:none;
+}
+
+.heart{
+position:fixed;
+font-size:30px;
+animation:fly 4s linear forwards;
+}
+
+@keyframes fly{
+from{
+transform:translateY(0);
+opacity:1;
+}
+to{
+transform:translateY(-110vh);
+opacity:0;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="page1">
+
+<img src="gamze.jpg" alt="Gamze">
+
+<h1>Gamze ❤️</h1>
+
+<p>
+Benimle ne zaman baş başa pikniğe gelmek istiyor musun? 🥺❤️
+</p>
+
+<button class="btn yes" onclick="evetTiklandi()">
+Evet 😍
+</button>
+
+<button class="btn no" id="hayirBtn">
+Hayır 🙈
+</button>
+
+</div>
+
+<div class="container hidden" id="page2">
+
+<h1>🥹❤️</h1>
+
+<p>
+Beni aşırı mutlu ettin kıvırcık marulum ❤️
+</p>
+
+<button class="btn yes" onclick="tarihSayfasi()">
+Tarih Seç 🌷
+</button>
+
+</div>
+
+<div class="container hidden" id="page3">
+
+<h1>Piknik Tarihimizi Seç ❤️</h1>
+
+<input type="date" id="tarih">
+
+<button class="btn yes" onclick="whatsappGonder()">
+Emrah'a Gönder ❤️
+</button>
+
+</div>
+
+<script>
+
+const hayirBtn = document.getElementById("hayirBtn");
+
+hayirBtn.addEventListener("mouseover", () => {
+
+const x = Math.random() * (window.innerWidth - 120);
+const y = Math.random() * (window.innerHeight - 80);
+
+hayirBtn.style.position = "fixed";
+hayirBtn.style.left = x + "px";
+hayirBtn.style.top = y + "px";
+
+});
+
+function evetTiklandi(){
+
+document.getElementById("page1").classList.add("hidden");
+document.getElementById("page2").classList.remove("hidden");
+
+setInterval(kalp,250);
+
+}
+
+function tarihSayfasi(){
+
+document.getElementById("page2").classList.add("hidden");
+document.getElementById("page3").classList.remove("hidden");
+
+}
+
+function whatsappGonder(){
+
+const tarih = document.getElementById("tarih").value;
+
+if(!tarih){
+alert("Önce bir tarih seç ❤️");
+return;
+}
+
+const mesaj =
+"Merhaba Emrah ❤️%0A%0A" +
+"Piknik için seçtiğim tarih: " +
+tarih +
+" 🌷%0A%0A" +
+"Artık geri dönüş yok, piknik sözünü aldım 😌❤️";
+
+window.open(
+"https://wa.me/905536850718?text=" + mesaj,
+"_blank"
+);
+
+}
+
+function kalp(){
+
+const h = document.createElement("div");
+
+h.className="heart";
+h.innerHTML="❤️";
+
+h.style.left=Math.random()*window.innerWidth+"px";
+h.style.bottom="-30px";
+
+document.body.appendChild(h);
+
+setTimeout(()=>{
+h.remove();
+},4000);
+
+}
+
+</script>
+
+</body>
+</html>
